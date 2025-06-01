@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Меню - Shadow Gate</title>
+    <title>Наше Меню - Shadow Gate</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="dark-header">
@@ -25,87 +25,160 @@
             </div>
         </div>
     </header>
+
+    <main>
+        <section class="hero-menu">
+            <div class="hero-overlay"></div>
+            <div class="hero-content-wrapper container">
+                <div class="hero-text-block text-center animate-text-reveal">
+                    <h2 class="hero-title">Магический Канон Вкуса</h2>
+                    <p class="hero-subtitle">Исследуйте наши кулинарные подземелья и найдите свои сокровища.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-categories-nav content-section animate-on-scroll fade-in">
+            <div class="container">
+                <h2 class="section-title text-center">Разделы Меню</h2>
+                <nav class="category-tabs">
+                    <a href="#starters" class="tab-item btn-secondary animate-on-scroll slide-up delay-1">Стартовые блюда</a>
+                    <a href="#main-courses" class="tab-item btn-secondary animate-on-scroll slide-up delay-2">Основные блюда</a>
+                    <a href="#desserts" class="tab-item btn-secondary animate-on-scroll slide-up delay-3">Десерты</a>
+                    <a href="#drinks" class="tab-item btn-secondary animate-on-scroll slide-up delay-4">Напитки</a>
+                </nav>
+            </div>
+        </section>
+
+        <section class="kitchen-philosophy content-section animate-on-scroll fade-in">
+            <div class="container">
+                <div class="philosophy-content">
+                    <div class="philosophy-text animate-on-scroll fade-in-left">
+                        <h2 class="section-title">Философия Нашей Кухни: Искусство Пробуждения</h2>
+                        <p>В Shadow Gate мы верим, что еда — это не просто пища, это опыт. Каждый ингредиент, подобно крупице маны, тщательно отбирается и обрабатывается, чтобы раскрыть свой максимальный потенциал. Мы используем только свежайшие, локальные продукты, которые наши шеф-повара превращают в кулинарные заклинания.</p>
+                        <p>Наши блюда вдохновлены древними сказаниями и современной мистикой, призванные не просто насытить, но и пробудить ваши вкусовые рецепторы к новым, невиданным ранее ощущениям. Приготовьтесь к гастрономическому путешествию, где каждый укус открывает новый уровень.</p>
+                    </div>
+                    <div class="philosophy-image animate-on-scroll fade-in-right">
+                        <img src="https://images.unsplash.com/photo-1547595304-4d13e3b56f2f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ингредиенты">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="menu-section">
             <div class="container">
-                <h2>Наше Меню</h2>
-                
-                <div class="menu-categories">
-                    <button class="active" data-category="all">Все</button>
-                    <button data-category="drinks">Напитки</button>
-                    <button data-category="food">Кухня</button>
-                    <button data-category="desserts">Десерты</button>
-                </div>
-
-                <div id="drinks" class="menu-category">
-                    <h3><span>Напитки</span></h3>
-                    <div class="menu-items-grid">
-                        <div class="menu-item-card" data-category="drinks">
-                            <h4>Elixir of Shadows</h4>
-                            <p>Авторский коктейль с тёмным ромом и экзотическими фруктами</p>
-                            <span class="price">1200 ₽</span>
+                <div id="starters" class="menu-category content-section animate-on-scroll slide-up">
+                    <h3 class="category-title text-center"><span>Стартовые Блюда: Первые Испытания</span></h3>
+                    <div class="menu-grid">
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-1">
+                            <img src="https://images.unsplash.com/photo-1621851219001-c8846c4f9a0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Салат 'Артефакт'">
+                            <h4>Салат "Артефакт"</h4>
+                            <p>Изысканный салат с вялеными томатами, моцареллой и соусом песто. Легкое начало приключения.</p>
+                            <span class="price">950 ₽</span>
                         </div>
-                        <div class="menu-item-card" data-category="drinks">
-                            <h4>Forbidden Brew</h4>
-                            <p>Кофе на основе секретного рецепта с пряностями</p>
-                            <span class="price">500 ₽</span>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-2">
+                            <img src="https://images.unsplash.com/photo-1598214815413-5a0225d303f2?q=80&w=1968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Мистические Креветки">
+                            <h4>Мистические Креветки</h4>
+                            <p>Тигровые креветки, обжаренные с чесноком и перцем чили, в сливочно-винном соусе.</p>
+                            <span class="price">1100 ₽</span>
                         </div>
-                        <div class="menu-item-card" data-category="drinks">
-                            <div class="item-badge new">Новинка</div>
-                            <h4>Whispers of the Abyss</h4>
-                            <p>Освежающий безалкогольный коктейль на основе голубой матчи</p>
-                            <span class="price">800 ₽</span>
-                        </div>
-                         <div class="menu-item-card" data-category="drinks">
-                            <h4>Crimson Nectar</h4>
-                            <p>Красное сухое вино, выдержанное в дубовых бочках</p>
-                            <span class="price">900 ₽ (бокал) / 4500 ₽ (бутылка)</span>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-3">
+                            <img src="https://images.unsplash.com/photo-1596700589139-4467d022ec19?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Теневые Роллы">
+                            <h4>Теневые Роллы</h4>
+                            <p>Ассорти спринг-роллов с различными начинками и пикантными соусами.</p>
+                            <span class="price">850 ₽</span>
                         </div>
                     </div>
                 </div>
 
-                <div id="food" class="menu-category">
-                    <h3><span>Кухня</span></h3>
-                    <div class="menu-items-grid">
-                        <div class="menu-item-card" data-category="food">
-                            <div class="item-badge new">Новинка</div> <h4>Steak of the Shadow Monarch</h4>
-                            <p>Стейк рибай с трюфельным соусом и овощами гриль</p>
-                            <span class="price">2500 ₽</span>
+                <div id="main-courses" class="menu-category content-section animate-on-scroll slide-up">
+                    <h3 class="category-title text-center"><span>Основные Блюда: Сражение Вкуса</span></h3>
+                    <div class="menu-grid">
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-1">
+                            <img src="https://images.unsplash.com/photo-1621851219001-c8846c4f9a0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Стейк Монарха">
+                            <h4>Стейк Монарха</h4>
+                            <p>Премиальный стейк из мраморной говядины с грибным соусом и овощами на гриле.</p>
+                            <span class="price">2800 ₽</span>
                         </div>
-                        <div class="menu-item-card" data-category="food">
-                            <h4>Dungeon Pasta</h4>
-                            <p>Паста с морепродуктами в сливочном соусе</p>
-                            <span class="price">1800 ₽</span>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-2">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Рыба из Бездонного Озера">
+                            <h4>Рыба из Бездонного Озера</h4>
+                            <p>Филе дикого лосося, запеченное с травами и лимоном, подается с киноа и спаржей.</p>
+                            <span class="price">2200 ₽</span>
                         </div>
-                        <div class="menu-item-card" data-category="food">
-                            <h4>Arise Salad</h4>
-                            <p>Салат с уткой, грушей и орехами пекан</p>
-                            <span class="price">1500 ₽</span>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-3">
+                            <img src="https://images.unsplash.com/photo-1574971485303-3467e9b08f4c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Рагу Легиона">
+                            <h4>Рагу Легиона</h4>
+                            <p>Насыщенное рагу из дичи с корнеплодами и ароматными травами. Идеально для сильных духом.</p>
+                            <span class="price">1900 ₽</span>
                         </div>
-                        <div class="menu-item-card" data-category="food">
-                            <h4>Dragon Wings</h4>
-                            <p>Куриные крылья в остром соусе</p>
-                            <span class="price">1200 ₽</span>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-4">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Курица в Соусе Душ">
+                            <h4>Курица в Соусе Душ</h4>
+                            <p>Нежное куриное филе, приготовленное по особому рецепту с необычным соусом.</p>
+                            <span class="price">1700 ₽</span>
                         </div>
                     </div>
                 </div>
 
-                <div id="desserts" class="menu-category">
-                    <h3><span>Десерты</span></h3>
-                    <div class="menu-items-grid">
-                        <div class="menu-item-card" data-category="desserts">
-                            <h4>Portal Cake</h4>
-                            <p>Шоколадный торт с вишневым конфи</p>
-                            <span class="price">700 ₽</span>
+                <div id="desserts" class="menu-category content-section animate-on-scroll slide-up">
+                    <h3 class="category-title text-center"><span>Десерты: Сладость Победы</span></h3>
+                    <div class="menu-grid">
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-1">
+                            <img src="https://images.unsplash.com/photo-1587317765942-0f9c2f6d54d2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Портал Вкуса">
+                            <h4>Портал Вкуса</h4>
+                            <p>Изысканный шоколадный фондан с жидким центром и шариком ванильного мороженого.</p>
+                            <span class="price">750 ₽</span>
                         </div>
-                        <div class="menu-item-card" data-category="desserts">
-                            <h4>Moonlight Mousse</h4>
-                            <p>Нежный ягодный мусс с мятой</p>
-                            <span class="price">650 ₽</span>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-2">
+                            <img src="https://images.unsplash.com/photo-1563721305411-e1f4d9b4b3c4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Магический Тирамису">
+                            <h4>Магический Тирамису</h4>
+                            <p>Классический итальянский десерт с нотками кофейного эликсира.</p>
+                            <span class="price">680 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="drinks" class="menu-category content-section animate-on-scroll slide-up">
+                    <h3 class="category-title text-center"><span>Напитки: Эликсиры Силы и Отдыха</span></h3>
+                    <div class="menu-grid">
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-1">
+                            <img src="https://images.unsplash.com/photo-1624552092288-66a987d60925?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Эликсир Исцеления">
+                            <h4>Эликсир Исцеления</h4>
+                            <p>Безалкогольный освежающий напиток на основе свежих ягод и мяты.</p>
+                            <span class="price">450 ₽</span>
+                        </div>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-2">
+                            <img src="https://images.unsplash.com/photo-1582236371752-6a566779435b?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Коктейль 'Теневой Путь'">
+                            <h4>Коктейль "Теневой Путь"</h4>
+                            <p>Авторский коктейль с темным ромом, кофейным ликером и нотками специй.</p>
+                            <span class="price">900 ₽</span>
+                        </div>
+                        <div class="menu-item-card animate-on-scroll zoom-in delay-3">
+                            <img src="https://images.unsplash.com/photo-1571343753696-a08b5e966395?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Зелье Глубин">
+                            <h4>Зелье Глубин</h4>
+                            <p>Особый сбор травяного чая, обладающий расслабляющим и очищающим эффектом.</p>
+                            <span class="price">350 ₽</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="special-offer content-section animate-on-scroll fade-in">
+            <div class="container">
+                <div class="offer-card animate-on-scroll slide-up">
+                    <div class="offer-text">
+                        <h2 class="section-title">Предложение от Монарха: Эликсир Бессмертия</h2>
+                        <p>Попробуйте наш эксклюзивный напиток, который подарит вам не только невероятный вкус, но и заряд бодрости на весь день. Доступно только в течение этого месяца!</p>
+                        <a href="booking.html" class="btn btn-primary">Забронировать и попробовать</a>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1603593361834-0803e1a0b3f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Эликсир Бессмертия">
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="dark-footer">
@@ -113,43 +186,9 @@
             <p>© 2025 Shadow Gate. Все права защищены.</p>
             <p>Адрес: ул. Тенистая, 13</p>
             <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-            <div class="social-links">
-                <a href="https://t.me/your_telegram" target="_blank" aria-label="Telegram">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" class="social-icon">
-                </a>
-                <a href="https://vk.com/your_vk" target="_blank" aria-label="ВКонтакте">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/VK_logo.svg" alt="ВКонтакте" class="social-icon">
-                </a>
-                <a href="https://www.instagram.com/your_instagram" target="_blank" aria-label="Instagram">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
-                </a>
-            </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categoryButtons = document.querySelectorAll('.menu-categories button');
-            const menuCategories = document.querySelectorAll('.menu-category');
-
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    const selectedCategory = this.dataset.category;
-
-                    menuCategories.forEach(categoryDiv => {
-                        if (selectedCategory === 'all' || categoryDiv.id === selectedCategory) {
-                            categoryDiv.style.display = 'block';
-                        } else {
-                            categoryDiv.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
