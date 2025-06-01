@@ -1363,3 +1363,493 @@ nav ul li a:hover {
         height: 300px;
     }
 }
+/* Большие десктопы (опционально, если нужно что-то специфичное для очень больших экранов) */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px; /* Увеличим контейнер для очень больших экранов */
+    }
+}
+
+/* Десктопы и большие планшеты (от 992px до 1199px) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .hero-content-wrapper {
+        padding: 0 30px;
+    }
+
+    /* Index page */
+    .features-grid, .menu-grid-home {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    /* Menu page */
+    .philosophy-content {
+        grid-template-columns: 1fr; /* Один столбец для философии */
+        text-align: center;
+        gap: 40px;
+    }
+    .philosophy-image {
+        order: -1; /* Изображение сверху */
+    }
+    .philosophy-text h2 {
+        text-align: center;
+    }
+    .philosophy-text h2::before { /* Центрируем декоративную линию под заголовком */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+    }
+    .category-title::before { /* Центрируем декоративную линию под заголовком */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+    .offer-card {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        padding: 30px;
+    }
+    .offer-text {
+        padding-right: 0;
+    }
+    .offer-text .section-title {
+        text-align: center;
+    }
+    .offer-text .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+    }
+    .offer-image {
+        order: -1;
+        width: 100%; /* Увеличиваем ширину изображения */
+        max-width: 400px; /* Ограничиваем максимальный размер */
+        height: 250px;
+    }
+
+    /* About page */
+    .mission-content, .location-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .mission-image, .location-map {
+        order: -1;
+    }
+    .mission-text h2 {
+        text-align: center;
+    }
+    .mission-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+    }
+    .location-details {
+        text-align: center;
+        padding: 30px;
+    }
+    .location-details ul {
+        display: inline-block; /* Для центрирования списка */
+        text-align: left; /* Возвращаем текст списка влево */
+    }
+    .team-grid, .gallery-grid-about {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    .gallery-item-about img {
+        height: 220px;
+    }
+}
+
+/* Планшеты и маленькие десктопы (от 768px до 991px) */
+@media (max-width: 991px) {
+    .container {
+        max-width: 720px;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    .dark-header .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .dark-header nav {
+        margin-top: 20px;
+    }
+    .dark-header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .dark-header nav ul li a {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    /* Hero sections */
+    .hero, .hero-menu, .hero-about {
+        height: 55vh;
+        margin-top: 120px; /* Увеличим отступ, если хедер станет выше */
+    }
+    .hero .hero-title, .hero-menu .hero-title, .hero-about .hero-title {
+        font-size: 3em;
+    }
+    .hero .hero-subtitle, .hero-menu .hero-subtitle, .hero-about .hero-subtitle {
+        font-size: 1.2em;
+    }
+
+    /* General sections */
+    .section-title {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+    .content-section {
+        padding: 60px 0;
+    }
+
+    /* Index page */
+    .features-grid, .menu-grid-home {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .feature-item p, .menu-item p {
+        font-size: 0.95em;
+    }
+    .about-short .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .about-short .about-text h2 {
+        text-align: center;
+    }
+    .about-short .about-image {
+        order: -1;
+    }
+    .cta-section .cta-content {
+        padding: 30px;
+    }
+    .cta-section .cta-content h2 {
+        font-size: 2em;
+    }
+    .review-card {
+        padding: 25px;
+    }
+
+    /* Menu page */
+    .menu-categories-nav {
+        padding: 40px 0 20px;
+    }
+    .category-tabs {
+        gap: 15px;
+    }
+    .category-tabs .tab-item {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .kitchen-philosophy {
+        padding: 80px 0;
+    }
+    .philosophy-text p {
+        font-size: 1em;
+    }
+    .category-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .menu-item-card img {
+        height: 180px;
+    }
+    .menu-item-card h4 {
+        font-size: 1.5em;
+    }
+    .special-offer {
+        padding: 60px 0;
+    }
+    .offer-image {
+        max-width: 350px;
+        height: 200px;
+    }
+
+    /* About page */
+    .our-mission {
+        padding: 80px 0;
+    }
+    .mission-text p {
+        font-size: 1em;
+    }
+    .our-team {
+        padding: 60px 0;
+    }
+    .team-member img {
+        width: 130px;
+        height: 130px;
+    }
+    .team-member h3 {
+        font-size: 1.6em;
+    }
+    .interior-gallery {
+        padding: 60px 0;
+    }
+    .gallery-grid-about {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .gallery-item-about img {
+        height: 180px;
+    }
+    .location {
+        padding: 60px 0;
+    }
+    .location-map iframe {
+        height: 380px;
+    }
+    .location-details p {
+        font-size: 1em;
+    }
+}
+
+/* Мобильные устройства (от 480px до 767px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Header */
+    .dark-header {
+        height: auto; /* Позволяем хедеру подстраиваться по высоте */
+        padding: 15px 0;
+    }
+    .dark-header .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .dark-header .logo {
+        font-size: 1.8em;
+    }
+    .dark-header nav {
+        margin-top: 15px;
+        width: 100%;
+        overflow-x: auto; /* Горизонтальный скролл для длинного меню */
+        -webkit-overflow-scrolling: touch; /* Для плавного скролла на iOS */
+    }
+    .dark-header nav ul {
+        flex-wrap: nowrap; /* Не переносим пункты меню */
+        justify-content: flex-start; /* Выравниваем по левому краю */
+        gap: 8px;
+        padding-bottom: 5px; /* Отступ для скроллбара */
+    }
+    .dark-header nav ul li {
+        flex-shrink: 0; /* Чтобы пункты меню не сжимались */
+    }
+    .dark-header nav ul li a {
+        font-size: 0.85em;
+        padding: 6px 12px;
+    }
+
+    /* Hero sections */
+    .hero, .hero-menu, .hero-about {
+        height: 45vh;
+        margin-top: 100px; /* Уменьшим отступ, если хедер стал компактнее */
+    }
+    .hero .hero-title, .hero-menu .hero-title, .hero-about .hero-title {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+    .hero .hero-subtitle, .hero-menu .hero-subtitle, .hero-about .hero-subtitle {
+        font-size: 1em;
+    }
+
+    /* General sections */
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .section-subtitle {
+        font-size: 0.9em;
+    }
+    .content-section {
+        padding: 50px 0;
+    }
+
+    /* Index page */
+    .features-grid, .menu-grid-home {
+        grid-template-columns: 1fr; /* Одна колонка для всех элементов */
+        gap: 20px;
+    }
+    .feature-item, .menu-item {
+        padding: 20px;
+    }
+    .about-short .about-text h2 {
+        font-size: 1.8em;
+    }
+    .cta-section .cta-content {
+        padding: 25px;
+    }
+    .cta-section .cta-content h2 {
+        font-size: 1.8em;
+    }
+    .review-card {
+        padding: 20px;
+        font-size: 0.9em;
+    }
+
+    /* Menu page */
+    .menu-categories-nav {
+        padding: 30px 0 15px;
+    }
+    .category-tabs {
+        gap: 10px;
+    }
+    .category-tabs .tab-item {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+    .kitchen-philosophy {
+        padding: 60px 0;
+    }
+    .philosophy-text p {
+        font-size: 0.95em;
+    }
+    .category-title {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .menu-item-card {
+        padding: 15px;
+    }
+    .menu-item-card img {
+        height: 160px;
+        margin-bottom: 15px;
+    }
+    .menu-item-card h4 {
+        font-size: 1.4em;
+    }
+    .menu-item-card .price {
+        font-size: 1.6em;
+    }
+    .special-offer {
+        padding: 50px 0;
+    }
+    .offer-card {
+        padding: 25px;
+        gap: 20px;
+    }
+    .offer-image {
+        height: 180px;
+    }
+
+    /* About page */
+    .our-mission {
+        padding: 60px 0;
+    }
+    .mission-text p {
+        font-size: 0.95em;
+    }
+    .our-team {
+        padding: 50px 0;
+    }
+    .team-member {
+        padding: 25px;
+    }
+    .team-member img {
+        width: 100px;
+        height: 100px;
+    }
+    .team-member h3 {
+        font-size: 1.4em;
+    }
+    .interior-gallery {
+        padding: 50px 0;
+    }
+    .gallery-grid-about {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .gallery-item-about img {
+        height: 200px; /* Можно оставить чуть больше, чтобы картинки выглядели лучше */
+    }
+    .location {
+        padding: 50px 0;
+    }
+    .location-map iframe {
+        height: 300px;
+    }
+    .location-details {
+        padding: 25px;
+    }
+    .location-details p, .location-details ul li {
+        font-size: 0.95em;
+    }
+}
+
+/* Очень маленькие мобильные устройства (до 479px) */
+@media (max-width: 479px) {
+    /* Header */
+    .dark-header .logo {
+        font-size: 1.5em;
+    }
+    .dark-header nav ul li a {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    /* Hero sections */
+    .hero, .hero-menu, .hero-about {
+        height: 40vh;
+        margin-top: 90px;
+    }
+    .hero .hero-title, .hero-menu .hero-title, .hero-about .hero-title {
+        font-size: 2em;
+    }
+    .hero .hero-subtitle, .hero-menu .hero-subtitle, .hero-about .hero-subtitle {
+        font-size: 0.9em;
+    }
+
+    /* General sections */
+    .section-title {
+        font-size: 1.8em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    /* Menu page */
+    .category-tabs {
+        flex-direction: column; /* Кнопки категорий в столбик */
+    }
+    .category-tabs .tab-item {
+        width: 100%;
+        text-align: center;
+    }
+    .category-title {
+        font-size: 1.8em;
+    }
+    .menu-item-card h4 {
+        font-size: 1.2em;
+    }
+    .menu-item-card .price {
+        font-size: 1.4em;
+    }
+
+    /* About page */
+    .team-member h3 {
+        font-size: 1.3em;
+    }
+    .location-map iframe {
+        height: 250px;
+    }
+}
