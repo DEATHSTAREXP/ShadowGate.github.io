@@ -3,155 +3,118 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
+                // Учитываем высоту фиксированного хедера при прокрутке
+                const headerOffset = document.querySelector('.dark-header').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset - 20; // Дополнительный отступ
+
                 window.scrollTo({
-                    top: targetElement.offsetTop - 100,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Добавляем эффект параллакса для героя
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.pageYOffset;
-            hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+    // --- Анимация элементов при скролле ---
+    const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+    const headerHeight = document.querySelector('.dark-header').offsetHeight;
+
+    function checkVisibility() {
+        animateOnScrollElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            // Активируем анимацию, когда элемент появляется в нижней половине экрана
+            // Учитываем высоту хедера
+            if (elementTop < window.innerHeight - headerHeight / 2) {
+                element.classList.add('active');
+            }
+            // Можно добавить условие для удаления 'active' при выходе из видимости,
+            // если анимации должны проигрываться каждый раз.
+            // else {
+            //     element.classList.remove('active');
+            // }
         });
     }
 
-    // Анимация при скролле
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.menu-item, .about-short, .carousel-section');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
+    // Инициализируем анимацию при загрузке страницы
+    checkVisibility();
+
+    // Запускаем проверку при каждом скролле
+    window.addEventListener('scroll', checkVisibility);
+
+    // --- Анимация заголовков Hero-секции ---
+    // Эти анимации запускаются один раз при загрузке страницы
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroBtn = document.querySelector('.hero-content-wrapper .btn');
+
+    if (heroTitle) {
+        heroTitle.style.animation = 'textReveal 1.5s forwards';
+    }
+    if (heroSubtitle) {
+        heroSubtitle.style.animation = 'textReveal 1.5s forwards 0.5s'; // Задержка 0.5с
+    }
+    if (heroBtn) {
+        heroBtn.style.animation = 'scaleIn 1s forwards 1.5s'; // Задержка 1.5с
+    }
+
+    // --- Логика для страниц форм (login, register, booking) ---
+    const animateForm = function() {
+        document.querySelectorAll('.form-group input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.classList.add('input-focus');
+            });
+            input.addEventListener('blur', () => {
+                input.classList.remove('input-focus');
+            });
+        });
+        document.querySelectorAll('input[type="submit"], .submit-button, .form-button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('button-press');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('button-press');
+            });
+            button.addEventListener('mouseleave', () => { // На случай, если кнопка отпускается вне элемента
+                button.classList.remove('button-press');
+            });
         });
     };
 
-    // Устанавливаем начальные стили для анимации
-    document.querySelectorAll('.menu-item, .about-short, .carousel-section').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(50px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Запускаем при загрузке
-});
-
-// Плавная прокрутка для всех якорных ссылок
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            const headerHeight = document.querySelector('.dark-header').offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-            
-            // Для браузеров, не поддерживающих smooth scroll
-            if (!('scrollBehavior' in document.documentElement.style)) {
-                const startPosition = window.pageYOffset;
-                const distance = targetPosition - startPosition;
-                const duration = 800;
-                let start = null;
-                
-                function step(timestamp) {
-                    if (!start) start = timestamp;
-                    const progress = timestamp - start;
-                    window.scrollTo(0, easeInOutQuad(progress, startPosition, distance, duration));
-                    if (progress < duration) window.requestAnimationFrame(step);
-                }
-                
-                window.requestAnimationFrame(step);
-            }
+    // --- Логика для страницы профиля ---
+    const animateProfile = function() {
+        const profileInfo = document.querySelector('.profile-info');
+        if (profileInfo) {
+            profileInfo.classList.add('info-fade-in');
         }
-    });
-});
 
-// Функция для плавности анимации (ease-in-out)
-function easeInOutQuad(t, b, c, d) {
-    t /= d/2;
-    if (t < 1) return c/2*t*t + b;
-    t--;
-    return -c/2 * (t*(t-2) - 1) + b;
-}
-// Анимация пунктов меню
-function animateMenuItems() {
-    const menuItems = document.querySelectorAll('.menu-item');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+        const bookingItems = document.querySelectorAll('.booking-item');
+        bookingItems.forEach((item, index) => {
+            item.style.animationDelay = `${0.2 + index * 0.1}s`; // Задержка для каскадного появления
+            item.classList.add('booking-slide-in'); // Класс для анимации появления бронирования
         });
-    }, { threshold: 0.1 });
 
-    menuItems.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 0.1}s`;
-        observer.observe(item);
-    });
-}
+        const couponItems = document.querySelectorAll('.coupon-item');
+        couponItems.forEach((item, index) => {
+            item.style.animationDelay = `${0.3 + index * 0.1}s`; // Задержка для каскадного появления
+            item.classList.add('coupon-fade-in'); // Класс для анимации появления купонов
+        });
+    };
 
-// Вызовите функцию при загрузке
-document.addEventListener('DOMContentLoaded', animateMenuItems);
-// Фразы для hero-секции
-const heroPhrases = [
-    "Охота на лучшие вкусы открыта",
-    "Кулинарный дунжон ждёт героев",
-    "S-Rank гастрономии",
-    "Врата в мир тенистых вкусов",
-    "Место силы для гурманов",
-    "Арена кулинарных битв",
-    "Проложите путь к совершенству"
-];
+    // --- Запуск функций в зависимости от текущей страницы ---
+    const path = window.location.pathname;
 
-function rotateHeroPhrase() {
-    const phraseElement = document.getElementById('dynamic-phrase');
-    if (phraseElement) {
-        // Плавное исчезновение
-        phraseElement.style.opacity = 0;
-        
-        setTimeout(() => {
-            // Выбор случайной фразы (исключая текущую)
-            let newIndex;
-            do {
-                newIndex = Math.floor(Math.random() * heroPhrases.length);
-            } while (heroPhrases[newIndex] === phraseElement.textContent);
-            
-            phraseElement.textContent = heroPhrases[newIndex];
-            
-            // Плавное появление
-            phraseElement.style.opacity = 1;
-        }, 500); // Полсекунды на исчезновение
+    if (path.includes('login.html') || path.includes('register.html') || path.includes('booking.html')) {
+        animateForm();
     }
-}
 
-// Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-    rotateHeroPhrase();
-    setInterval(rotateHeroPhrase, 5000); // Смена каждые 5 сек
+    if (path.includes('profile.html')) {
+        animateProfile();
+    }
 });
