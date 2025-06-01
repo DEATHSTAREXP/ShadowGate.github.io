@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">\
     <style>
-        /* Используем те же стили, что и для login.html, так как они схожи */
         .auth-section {
             padding: 60px 0;
             background-color: #1a1a1a;
@@ -110,9 +109,13 @@
         <div class="container">
             <div class="header-content">
                 <h1 class="logo">Shadow Gate</h1>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Главная</a></li>
+                <button class="hamburger-menu" aria-label="Открыть меню">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav id="main-nav"> <ul>
+                        <li><a href="index.html" class="active">Главная</a></li>
                         <li><a href="menu.html">Меню</a></li>
                         <li><a href="about.html">О нас</a></li>
                         <li><a href="booking.html">Забронировать стол</a></li>
