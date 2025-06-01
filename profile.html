@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Shadow Gate</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .profile-section {
+            padding: 60px 0;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            min-height: calc(100vh - 200px); /* Чтобы футер был внизу на коротких страницах */
+            display: flex;
+            align-items: center; /* Выравнивание по центру */
+            justify-content: center; /* Выравнивание по центру */
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .profile-header h2 {
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(var(--accent-color), 0.5);
+        }
+
+        .profile-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px; /* Пространство между блоками */
+            flex-wrap: wrap; /* Для адаптивности */
+        }
+
+        .profile-info-block, .profile-coupons-block {
+            flex: 1; /* Распределяем пространство */
+            min-width: 300px; /* Минимальная ширина, чтобы не было слишком узко */
+        }
+
+        .profile-info {
+            text-align: left;
+            opacity: 0; 
+            transform: translateX(-20px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .profile-info.info-fade-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .profile-info h3 {
+            text-align: left;
+            color: var(--accent-color); 
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+            color: var(--text-primary);
+        }
+
+        .profile-info strong {
+            color: var(--accent-light); 
+        }
+
+        .profile-actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: flex-start; 
+            gap: 20px; 
+        }
+
+        .profile-bookings h3 {
+            color: var(--accent-color); 
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+            text-align: left; 
+        }
+
+        .booking-item {
+            background-color: var(--dark-primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--dark-secondary);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .booking-item.booking-slide-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .booking-details {
+            text-align: left;
+        }
+
+        .booking-details p {
+            margin: 5px 0;
+            color: var(--text-primary);
+        }
+
+        .booking-details strong {
+            color: var(--accent-light); 
+        }
+
+        .booking-actions .btn {
+            background-color: var(--text-secondary);
+            color: var(--dark-primary);
+            padding: 8px 15px;
+            font-size: 0.9em;
+        }
+
+        .booking-actions .btn:hover {
+            background-color: #999;
+        }
+
+        .coupons-section {
+            text-align: left;
+            opacity: 0; 
+            transform: translateX(20px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .coupons-section.coupons-fade-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .coupons-section h3 {
+            text-align: left;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .coupons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .coupon-item {
+            background-color: var(--dark-primary);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .coupon-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .coupon-item h4 {
+            color: var(--accent-light);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            text-align: left;
+        }
+
+        .coupon-item p {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .coupon-item .code {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-content-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .profile-info, .coupons-section, .profile-bookings h3 {
+                text-align: center; /* Центрируем заголовки и контент на маленьких экранах */
+            }
+            .profile-actions {
+                justify-content: center; /* Центрируем кнопки на маленьких экранах */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="dark-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Shadow Gate</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="menu.html">Меню</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="booking.html">Забронировать стол</a></li>
+                        <li><a href="profile.html" class="active">Личный кабинет</a></li>
+                        <li><a href="login.html">Вход / Регистрация</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <div class="container">
+                <div class="profile-container animated">
+                    <div class="profile-header">
+                        <h2>Личный кабинет</h2>
+                    </div>
+                    <div class="profile-content-wrapper">
+                        <div class="profile-info-block">
+                            <div class="profile-info">
+                                <h3>Информация о профиле</h3>
+                                <p>Имя пользователя: <strong>Пример Пользователь</strong></p>
+                                <p>Email: <strong>user@example.com</strong></p>
+                                <p>Уровень лояльности: <strong>Серебро</strong></p>
+                                <p>Накопленные баллы: <strong>1250</strong></p>
+                                <div class="profile-actions">
+                                    <a href="#" class="btn">Редактировать профиль</a>
+                                    <a href="#" class="btn">История заказов</a>
+                                </div>
+                            </div>
+
+                            <div class="profile-bookings">
+                                <h3>Мои бронирования</h3>
+                                <div class="booking-item">
+                                    <div class="booking-details">
+                                        <p>Дата: <strong>15.06.2025</strong></p>
+                                        <p>Время: <strong>19:00</strong></p>
+                                        <p>Гостей: <strong>4</strong></p>
+                                        <p>Стол: <strong>№7</strong></p>
+                                    </div>
+                                    <div class="booking-actions">
+                                        <a href="#" class="btn">Изменить</a>
+                                        <a href="#" class="btn">Отменить</a>
+                                    </div>
+                                </div>
+                                <div class="booking-item">
+                                    <div class="booking-details">
+                                        <p>Дата: <strong>22.07.2025</strong></p>
+                                        <p>Время: <strong>20:30</strong></p>
+                                        <p>Гостей: <strong>2</strong></p>
+                                        <p>Стол: <strong>№3</strong></p>
+                                    </div>
+                                    <div class="booking-actions">
+                                        <a href="#" class="btn">Изменить</a>
+                                        <a href="#" class="btn">Отменить</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-coupons-block">
+                            <div class="coupons-section">
+                                <h3>Мои купоны</h3>
+                                <div class="coupons-grid">
+                                    <div class="coupon-item">
+                                        <h4>Скидка 15%</h4>
+                                        <p>Действует на весь заказ в течение следующего месяца.</p>
+                                        <p>Срок действия: до 31.12.2025</p>
+                                        <span class="code">SHADOW15</span>
+                                    </div>
+                                    <div class="coupon-item">
+                                        <h4>Бесплатный десерт</h4>
+                                        <p>При заказе основного блюда получите десерт "Портал Вкуса" бесплатно.</p>
+                                        <p>Срок действия: до 30.11.2025</p>
+                                        <span class="code">TASTEDESSERT</span>
+                                    </div>
+                                    <div class="coupon-item">
+                                        <h4>Бонусные баллы x2</h4>
+                                        <p>Получите двойные бонусные баллы за ваше следующее посещение.</p>
+                                        <p>Срок действия: бессрочно</p>
+                                        <span class="code">DOUBLEXP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dark-footer">
+        <div class="container">
+            <p>© 2025 Shadow Gate. Все права защищены.</p>
+            <p>Адрес: ул. Тенистая, 13</p>
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <div class="social-links">
+                <a href="https://t.me/your_telegram" target="_blank" aria-label="Telegram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" class="social-icon">
+                </a>
+                <a href="https://vk.com/your_vk" target="_blank" aria-label="ВКонтакте">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/VK_logo.svg" alt="ВКонтакте" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com/your_instagram" target="_blank" aria-label="Instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

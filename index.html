@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Gate</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="dark-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Shadow Gate</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li><a href="menu.html">Меню</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="booking.html">Забронировать стол</a></li>
+                        <li><a href="profile.html">Личный кабинет</a></li>
+                        <li><a href="login.html">Вход / Регистрация</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+            <!-- Hero-секция с параллаксом -->
+            <section class="hero">
+              <div class="hero-content">
+                <h2 data-split="chars">Shadow Gate</h2>
+                <p class="dynamic-phrase" id="dynamic-phrase"></p>
+                <a href="#booking" class="cta-button">Забронировать стол</a>
+              </div>
+              <div class="hero-scroll"></div>
+            </section>
+
+        <section class="carousel-section">
+            <div class="container">
+                <h2>Наше заведение</h2>
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/bar1.jpg" alt="Интерьер бара">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/bar2.jpg" alt="Барная стойка">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/bar3.jpg" alt="Зал ресторана">
+                        </div>
+                    </div>
+                    <button class="carousel-control prev">&#10094;</button>
+                    <button class="carousel-control next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-short">
+            <div class="container">
+                <h2>Shadow Gate</h2>
+                <p>Наш ресторан-бар вдохновлён эстетикой Solo Leveling - здесь вы найдёте таинственную атмосферу, изысканные блюда и напитки, достойные королей.</p>
+                <p>Мы предлагаем уникальное сочетание современных кулинарных тенденций и классических рецептов с элементами азиатской и европейской кухни.</p>
+                <a href="about.html" class="btn">Узнать больше</a>
+            </div>
+        </section>
+
+        <section class="menu-preview">
+            <div class="container">
+                <h2>Наше меню</h2>
+                <div class="menu-items">
+                    <div class="menu-item" data-category="drinks">
+                        <div class="item-badge hit">Хит</div>
+                        <h3>Gatekeeper's Whiskey</h3>
+                        <p>Элитный виски с нотками дуба и ванили</p>
+                        <span class="price">1200 ₽</span>
+                        <a href="menu.html#drinks" class="btn">Все напитки</a>
+                    </div>
+                    
+                    <div class="menu-item" data-category="food">
+                        <div class="item-badge new">Новинка</div>
+                        <h3>Shadow Monarch Steak</h3>
+                        <p>Стейк рибай с трюфельным соусом</p>
+                        <span class="price">2500 ₽ <span class="old-price">3000 ₽</span></span>
+                        <a href="menu.html#food" class="btn">Вся кухня</a>
+                    </div>
+                    
+                    <div class="menu-item" data-category="food">
+                        <div class="item-badge discount">-20%</div>
+                        <h3>Dungeon Pasta</h3>
+                        <p>Паста с морепродуктами в сливочном соусе</p>
+                        <span class="price">1440 ₽ <span class="old-price">1800 ₽</span></span>
+                        <a href="menu.html#food" class="btn">Вся кухня</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dark-footer">
+        <div class="container">
+            <p>© 2025 Shadow Gate. Все права защищены.</p>
+            <p>Адрес: ул. Тенистая, 13</p>
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <div class="social-links">
+                <a href="https://t.me/your_telegram" target="_blank" aria-label="Telegram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com/your_instagram" target="_blank" aria-label="Instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+                </a>
+        </div>
+    </footer>
+    
+
+    <script src="js/carousel.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
